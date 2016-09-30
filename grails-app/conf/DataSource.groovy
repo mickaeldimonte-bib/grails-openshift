@@ -33,14 +33,14 @@ environments {
           driverClassName = 'com.mysql.jdbc.Driver'
           dialect = org.hibernate.dialect.MySQL5InnoDBDialect
 
-          String host = System.getenv('MYSQL_DB_HOST')
-          String port = System.getenv('MYSQL_DB_PORT')
-          String dbName = System.getenv('MYSQL_DB_NAME')
+          String host = System.getenv('APPSETTING_MYSQL_DB_HOST')
+          String port = System.getenv('APPSETTING_MYSQL_DB_PORT')
+          String dbName = System.getenv('APPSETTING_MYSQL_DB_NAME')
 
           url = "jdbc:mysql://$host:$port/$dbName"
 
-          username = System.getenv('MYSQL_DB_USERNAME')
-          password = System.getenv('MYSQL_DB_PASSWORD')
+          username = System.getenv('APPSETTING_MYSQL_DB_USERNAME')
+          password = System.getenv('APPSETTING_MYSQL_DB_PASSWORD')
        }
     }
 }
