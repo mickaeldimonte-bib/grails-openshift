@@ -16,9 +16,9 @@ environments {
     development {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:mysql://eu-cdbr-azure-west-d.cloudapp.net/grails_db?useUnicode=yes&characterEncoding=UTF-8"
-            username = "bf90c22556e473"
-            password = "9c68c271"
+            url = "jdbc:mysql://localhost/grails_db?useUnicode=yes&characterEncoding=UTF-8"
+            username = "root"
+            password = ""
         }
     }
     test {
@@ -29,10 +29,18 @@ environments {
     }
     production {
         dataSource {
-            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:mysql://eu-cdbr-azure-west-d.cloudapp.net/grails_db?useUnicode=yes&characterEncoding=UTF-8"
-            username = "bf90c22556e473"
-            password = "9c68c271"
-        }
+          dbCreate = "update"
+          driverClassName = 'com.mysql.jdbc.Driver'
+          dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+
+          String host = System.getenv('MYSQL_DB_HOST')
+          String port = System.getenv('MYSQL_DB_PORT')
+          String dbName = System.getenv('MYSQL_DB_NAME')
+
+          url = "jdbc:mysql://$host:$port/$dbName"
+
+          username = System.getenv('MYSQL_DB_USERNAME')
+          password = System.getenv('MYSQL_DB_PASSWORD')
+       }
     }
 }
