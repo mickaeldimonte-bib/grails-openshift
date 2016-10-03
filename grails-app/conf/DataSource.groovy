@@ -37,10 +37,10 @@ environments {
           String port = System.getenv('APPSETTING_MYSQL_DB_PORT')
           String dbName = System.getenv('APPSETTING_MYSQL_DB_NAME')
 
-          url = "jdbc:mysql://$host:$port/$dbName"
+          url = "jdbc:mysql://eu-cdbr-azure-west-d.cloudapp.net:3306/grails_db"
 
-          username = System.getenv('APPSETTING_MYSQL_DB_USERNAME')
-          password = System.getenv('APPSETTING_MYSQL_DB_PASSWORD')
+          username = bf90c22556e473//System.getenv('APPSETTING_MYSQL_DB_USERNAME')
+          password = 9c68c271//System.getenv('APPSETTING_MYSQL_DB_PASSWORD')
        }
     }
 }
