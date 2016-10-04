@@ -1,14 +1,9 @@
-/*dataSource {
+dataSource {
     pooled = true
     jmxExport = true
     driverClassName = "org.h2.Driver"
     username = "sa"
     password = ""
-}*/
-dataSource {
-    pooled = true
-    driverClassName = "com.mysql.jdbc.Driver"
-    dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -21,35 +16,29 @@ hibernate {
 
 // environment specific settings
 environments {
-    /*development {
+    development {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
         }
-    }*/
-  development {
-        dataSource {
-          dbCreate = "update"
-          url = "jdbc:mysql://eu-cdbr-azure-west-d.cloudapp.net:3306/grails_db"
-          username = "bf90c22556e473"
-          password = "9c68c271"
-        }
     }
     test {
         dataSource {
-            dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:mysql://eu-cdbr-azure-west-d.cloudapp.net:3306/grails_db"
-            username = "sa"
-            password = ""
+            dbCreate = "update"
+            url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
         }
     }
-    production {
-        dataSource {
-          dbCreate = "update"
-          url = "jdbc:mysql://eu-cdbr-azure-west-d.cloudapp.net:3306/grails_db"
-          username = "bf90c22556e473"
-          password = "9c68c271"
-        }
+  production {
+    dataSource {
+      dbCreate = "update"
+       jndiName = "java:comp/env/[resource-name]"
     }
+  }
+  oracle {
+    dataSource {
+      dialect = "org.hibernate.dialect.OracleDialect"
+      dbCreate = "update"
+      jndiName = "java:comp/env/[resource-name]"
+    }
+  }
 }
-
