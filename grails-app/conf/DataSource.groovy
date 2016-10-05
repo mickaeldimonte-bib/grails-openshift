@@ -17,28 +17,33 @@ hibernate {
 // environment specific settings
 environments {
     development {
-        dataSource {
-            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
+         dataSource {
+          driverClassName = "com.mysql.jdbc.Driver"
+            dbCreate = "update"
+            url = "jdbc:mysql://172.30.141.172:3306/grails?autoreconnect=true"
+            username = "grails"
+            password = "grails"
+            logSql = false
         }
     }
     test {
-        dataSource {
+         dataSource {
+          driverClassName = "com.mysql.jdbc.Driver"
             dbCreate = "update"
-            url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
+            url = "jdbc:mysql://172.30.141.172:3306/grails?autoreconnect=true"
+            username = "grails"
+            password = "grails"
+            logSql = false
         }
     }
-  production {
-    dataSource {
-      dbCreate = "update"
-       jndiName = "java:comp/env/[resource-name]"
+    production {
+           dataSource {
+            driverClassName = "com.mysql.jdbc.Driver"
+              dbCreate = "update"
+              url = "jdbc:mysql://172.30.141.172:3306/grails?autoreconnect=true"
+              username = "grails"
+              password = "grails"
+              logSql = false
+          }
     }
-  }
-  oracle {
-    dataSource {
-      dialect = "org.hibernate.dialect.OracleDialect"
-      dbCreate = "update"
-      jndiName = "java:comp/env/[resource-name]"
-    }
-  }
 }
