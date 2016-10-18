@@ -1,0 +1,16 @@
+{
+   "build": {
+      "type": "maven",
+      "goal": "package"
+   },
+   "deploy": {
+      "container": "TOMCAT8",
+      "war": [
+         {
+            "file": "target/grails1.war",
+            "context": "/grails-openshift",
+            "checkMe": "/grails-openshift"
+         }
+      ]
+   }
+}
