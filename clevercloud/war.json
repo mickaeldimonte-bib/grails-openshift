@@ -8,7 +8,7 @@
       "war": [
          {
             "file": "target/grails-openshift.war",
-            "context": "/grails-openshift",
+            "context": "/grails-openshift"
          }
       ]
    }
