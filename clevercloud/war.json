@@ -4,12 +4,11 @@
       "goal": "package"
    },
    "deploy": {
-      "container": "TOMCAT8",
+      "container": "TOMCAT7",
       "war": [
          {
-            "file": "target/grails1.war",
+            "file": "target/grails-openshift.war",
             "context": "/grails-openshift",
-            "checkMe": "/grails-openshift"
          }
       ]
    }

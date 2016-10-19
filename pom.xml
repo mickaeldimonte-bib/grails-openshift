@@ -153,7 +153,7 @@
     </dependencies>
 
     <build>
-        <finalName>grails1</finalName>
+        <finalName>grails-openshift</finalName>
         <pluginManagement/>
 
         <plugins>
